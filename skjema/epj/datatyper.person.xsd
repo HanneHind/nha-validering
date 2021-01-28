@@ -1,0 +1,79 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<xs:schema xmlns="http://eisi.helsedir.no/anno2014/nha-epj-1.80/datatyper/person" xmlns:person="http://eisi.helsedir.no/anno2014/nha-epj-1.80/datatyper/person" xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:grunndata="http://eisi.helsedir.no/anno2014/nha-epj-1.80/datatyper/grunndata" xmlns:basis="http://eisi.helsedir.no/anno2014/nha-epj-1.80/datatyper/basis" targetNamespace="http://eisi.helsedir.no/anno2014/nha-epj-1.80/datatyper/person" elementFormDefault="qualified">
+	<xs:import namespace="http://eisi.helsedir.no/anno2014/nha-epj-1.80/datatyper/grunndata" schemaLocation="datatyper.grunndata.xsd"/>
+	<xs:import namespace="http://eisi.helsedir.no/anno2014/nha-epj-1.80/datatyper/basis" schemaLocation="datatyper.basis.xsd"/>
+	<xs:complexType name="Arkivert_R_T">
+		<xs:sequence>
+			<xs:element name="tjenesteyter_komponent_ID" type="xs:string" minOccurs="0" maxOccurs="1"/>
+			<xs:element name="fullt_navn" type="xs:string" minOccurs="1" maxOccurs="1"/>
+			<xs:element ref="person:tjenesteyters_rolle" minOccurs="1" maxOccurs="1"/>
+		</xs:sequence>
+	</xs:complexType>
+	<xs:element name="utførende_tjenesteyter">
+		<xs:complexType>
+			<xs:complexContent>
+				<xs:extension base="person:Arkivert_R_T"/>
+			</xs:complexContent>
+		</xs:complexType>
+	</xs:element>
+	<xs:element name="registrert_av_tjenesteyter">
+		<xs:complexType>
+			<xs:complexContent>
+				<xs:extension base="person:Arkivert_R_T"/>
+			</xs:complexContent>
+		</xs:complexType>
+	</xs:element>
+	<xs:element name="tjenesteyters_rolle">
+		<xs:complexType>
+			<xs:complexContent>
+				<xs:extension base="person:Arkivert_R_R"/>
+			</xs:complexContent>
+		</xs:complexType>
+	</xs:element>
+	<xs:complexType name="Arkivert_R_R">
+		<xs:sequence>
+			<xs:element name="rolle_komponent_ID" type="xs:string" minOccurs="0" maxOccurs="1"/>
+			<xs:element name="rollebeskrivelse" type="xs:string" minOccurs="1" maxOccurs="1"/>
+			<xs:element ref="grunndata:rolle___organisatorisk_enhet" minOccurs="0" maxOccurs="unbounded"/>
+		</xs:sequence>
+	</xs:complexType>
+	<xs:complexType name="arkivert_R_R_elementverdi">
+		<xs:complexContent>
+			<xs:extension base="person:Arkivert_R_R"/>
+		</xs:complexContent>
+	</xs:complexType>
+	<xs:complexType name="Arkivert_R_P">
+		<xs:sequence>
+			<xs:element name="personens_komponent_ID" type="xs:string" minOccurs="0" maxOccurs="1"/>
+			<xs:element name="fullt_navn" type="xs:string" minOccurs="1" maxOccurs="1"/>
+			<xs:element name="fødselsdato" type="xs:date" minOccurs="0" maxOccurs="1"/>
+			<xs:element name="arbeidsgiver" type="xs:string" minOccurs="0" maxOccurs="1"/>
+			<xs:element name="stillingsbetegnelse" type="xs:string" minOccurs="0" maxOccurs="1"/>
+			<xs:element ref="basis:kjønn" minOccurs="0" maxOccurs="1"/>
+		</xs:sequence>
+	</xs:complexType>
+	<xs:element name="signert_av_person">
+		<xs:complexType>
+			<xs:complexContent>
+				<xs:extension base="person:Arkivert_R_P"/>
+			</xs:complexContent>
+		</xs:complexType>
+	</xs:element>
+	<xs:element name="pasients_personopplysninger">
+		<xs:complexType>
+			<xs:complexContent>
+				<xs:extension base="person:Arkivert_R_P"/>
+			</xs:complexContent>
+		</xs:complexType>
+	</xs:element>
+	<xs:complexType name="arkivert_R_P_elementverdi">
+		<xs:complexContent>
+			<xs:extension base="person:Arkivert_R_P"/>
+		</xs:complexContent>
+	</xs:complexType>
+	<xs:complexType name="arkivert_R_T_elementverdi">
+		<xs:complexContent>
+			<xs:extension base="person:Arkivert_R_T"/>
+		</xs:complexContent>
+	</xs:complexType>
+</xs:schema>

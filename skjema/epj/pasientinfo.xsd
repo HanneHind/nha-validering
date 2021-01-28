@@ -1,0 +1,76 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<xs:schema xmlns="http://eisi.helsedir.no/anno2014/nha-epj-1.80/pasientinfo" xmlns:pasientinfo="http://eisi.helsedir.no/anno2014/nha-epj-1.80/pasientinfo" xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:basis="http://eisi.helsedir.no/anno2014/nha-epj-1.80/datatyper/basis" xmlns:grunndata="http://eisi.helsedir.no/anno2014/nha-epj-1.80/datatyper/grunndata" targetNamespace="http://eisi.helsedir.no/anno2014/nha-epj-1.80/pasientinfo" elementFormDefault="qualified">
+	<xs:import namespace="http://eisi.helsedir.no/anno2014/nha-epj-1.80/datatyper/basis" schemaLocation="datatyper.basis.xsd"/>
+	<xs:import namespace="http://eisi.helsedir.no/anno2014/nha-epj-1.80/datatyper/grunndata" schemaLocation="datatyper.grunndata.xsd"/>
+	<xs:element name="Pasientpersonalia">
+		<xs:complexType>
+			<xs:sequence>
+				<xs:element name="Arkivert_pasientinfo" type="pasientinfo:Arkivert_pasientinfo" minOccurs="1" maxOccurs="1"/>
+			</xs:sequence>
+		</xs:complexType>
+	</xs:element>
+	<xs:complexType name="Arkivert_pasientinfo">
+		<xs:sequence>
+			<xs:element name="pasient_komponent_ID" type="xs:string" minOccurs="0" maxOccurs="1"/>
+			<xs:element name="person_komponent_ID" type="xs:string" minOccurs="0" maxOccurs="1"/>
+			<xs:element name="pasient_ID" type="xs:string" minOccurs="1" maxOccurs="1"/>
+			<xs:element name="pasient_ID_type" type="xs:string" minOccurs="1" maxOccurs="1"/>
+			<xs:element name="fødselsdato" type="xs:date" minOccurs="0" maxOccurs="1"/>
+			<xs:element name="mors_dato" type="xs:date" minOccurs="0" maxOccurs="1"/>
+			<xs:element name="antatt_fødselsår" type="xs:gYear" minOccurs="0" maxOccurs="1"/>
+			<xs:element name="ukjent_identitet" type="xs:boolean" minOccurs="0" maxOccurs="1"/>
+			<xs:element name="første_gang_registrert_som_pasient" type="xs:date" minOccurs="0" maxOccurs="1"/>
+			<xs:element name="siste_registrering_i_journal" type="xs:date" minOccurs="0" maxOccurs="1"/>
+			<xs:element name="hemmelig_adresse" type="xs:boolean" minOccurs="0" maxOccurs="1"/>
+			<xs:element name="hemmelig_navn" type="xs:boolean" minOccurs="0" maxOccurs="1"/>
+			<xs:element name="Arkivert_sekundær_ID_til_pasient" type="pasientinfo:Arkivert_sekundær_ID_til_pasient" minOccurs="0" maxOccurs="unbounded"/>
+			<xs:element name="Arkivert_persons_adresse" type="pasientinfo:Arkivert_persons_adresse" minOccurs="0" maxOccurs="unbounded"/>
+			<xs:element name="Arkivert_personnavn" type="pasientinfo:Arkivert_personnavn" minOccurs="1" maxOccurs="unbounded"/>
+			<xs:element name="Arkivert_stilling" type="pasientinfo:Arkivert_stilling" minOccurs="0" maxOccurs="unbounded"/>
+			<xs:element name="Arkivert_hjemstavn" type="pasientinfo:Arkivert_hjemstavn" minOccurs="0" maxOccurs="unbounded"/>
+			<xs:element ref="basis:kjønn" minOccurs="0" maxOccurs="1"/>
+		</xs:sequence>
+	</xs:complexType>
+	<xs:complexType name="Arkivert_sekundær_ID_til_pasient">
+		<xs:sequence>
+			<xs:element name="merknad" type="xs:string" minOccurs="0" maxOccurs="1"/>
+			<xs:element ref="basis:sekundær_person_ID" minOccurs="1" maxOccurs="1"/>
+			<xs:element ref="basis:benyttes_i_land" minOccurs="0" maxOccurs="1"/>
+		</xs:sequence>
+	</xs:complexType>
+	<xs:complexType name="Arkivert_stilling">
+		<xs:sequence>
+			<xs:element name="stillingsbetegnelse" type="xs:string" minOccurs="1" maxOccurs="1"/>
+			<xs:element name="merknad" type="xs:string" minOccurs="0" maxOccurs="1"/>
+			<xs:element name="registrert_dato" type="xs:date" minOccurs="0" maxOccurs="1"/>
+			<xs:element ref="grunndata:arbeidsgiver" minOccurs="0" maxOccurs="1"/>
+			<xs:element name="yrkeskode" type="basis:yrkeskode" minOccurs="0" maxOccurs="1"/>
+		</xs:sequence>
+	</xs:complexType>
+	<xs:complexType name="Arkivert_hjemstavn">
+		<xs:sequence>
+			<xs:element name="merknad" type="xs:string" minOccurs="0" maxOccurs="1"/>
+			<xs:element name="registrert_dato" type="xs:date" minOccurs="0" maxOccurs="1"/>
+			<xs:element ref="basis:kommune" minOccurs="0" maxOccurs="1"/>
+			<xs:element ref="basis:nasjon" minOccurs="0" maxOccurs="1"/>
+		</xs:sequence>
+	</xs:complexType>
+	<xs:complexType name="Arkivert_personnavn">
+		<xs:sequence>
+			<xs:element name="fullt_navn" type="xs:string" minOccurs="1" maxOccurs="1"/>
+			<xs:element name="fornavn" type="xs:string" minOccurs="0" maxOccurs="1"/>
+			<xs:element name="mellomnavn" type="xs:string" minOccurs="0" maxOccurs="1"/>
+			<xs:element name="etternavn" type="xs:string" minOccurs="0" maxOccurs="1"/>
+			<xs:element name="merknad" type="xs:string" minOccurs="0" maxOccurs="1"/>
+			<xs:element name="registrert_dato" type="xs:date" minOccurs="0" maxOccurs="1"/>
+			<xs:element ref="basis:type_navn" minOccurs="0" maxOccurs="1"/>
+		</xs:sequence>
+	</xs:complexType>
+	<xs:complexType name="Arkivert_persons_adresse">
+		<xs:sequence>
+			<xs:element name="registrert_dato" type="xs:date" minOccurs="0" maxOccurs="1"/>
+			<xs:element ref="grunndata:adresse" minOccurs="1" maxOccurs="1"/>
+			<xs:element ref="basis:adressetype" minOccurs="0" maxOccurs="1"/>
+		</xs:sequence>
+	</xs:complexType>
+</xs:schema>

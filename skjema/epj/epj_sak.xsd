@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<xs:schema xmlns="http://eisi.helsedir.no/anno2014/nha-epj-1.80/epj_sak" xmlns:epj_sak="http://eisi.helsedir.no/anno2014/nha-epj-1.80/epj_sak" xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:grunndata="http://eisi.helsedir.no/anno2014/nha-epj-1.80/datatyper/grunndata" xmlns:revisjonsinfo="http://eisi.helsedir.no/anno2014/nha-epj-1.80/datatyper/revisjonsinfo" xmlns:stamme="http://eisi.helsedir.no/anno2014/nha-epj-1.80/datatyper/stamme" targetNamespace="http://eisi.helsedir.no/anno2014/nha-epj-1.80/epj_sak" elementFormDefault="qualified">
+	<xs:import namespace="http://eisi.helsedir.no/anno2014/nha-epj-1.80/datatyper/grunndata" schemaLocation="datatyper.grunndata.xsd"/>
+	<xs:import namespace="http://eisi.helsedir.no/anno2014/nha-epj-1.80/datatyper/revisjonsinfo" schemaLocation="datatyper.revisjonsinfo.xsd"/>
+	<xs:import namespace="http://eisi.helsedir.no/anno2014/nha-epj-1.80/datatyper/stamme" schemaLocation="datatyper.stamme.xsd"/>
+	<xs:element name="Arkivert_EPJ">
+		<xs:complexType>
+			<xs:sequence>
+				<xs:element name="EPJ_ID" type="xs:string" minOccurs="1" maxOccurs="1"/>
+				<xs:element name="filreferanse_pasientinfo" type="xs:anyURI" minOccurs="1" maxOccurs="1"/>
+				<xs:element name="Arkivert_EPJ_sak" type="epj_sak:Arkivert_EPJ_sak" minOccurs="1" maxOccurs="unbounded"/>
+				<xs:element ref="grunndata:ansvarlig_virksomhet" minOccurs="1" maxOccurs="1"/>
+				<xs:element ref="grunndata:ansvarlig_enhet" minOccurs="0" maxOccurs="1"/>
+			</xs:sequence>
+		</xs:complexType>
+	</xs:element>
+	<xs:complexType name="Arkivert_EPJ_sak">
+		<xs:complexContent>
+			<xs:extension base="stamme:Arkivert_Strukturkomponent">
+				<xs:sequence>
+					<xs:element name="Arkivert_EPJ_sak" type="epj_sak:Arkivert_EPJ_sak" minOccurs="0" maxOccurs="unbounded"/>
+					<xs:element name="Referanse_arkivert_EPJ_dokument" type="epj_sak:Referanse_arkivert_EPJ_dokument" minOccurs="0" maxOccurs="unbounded"/>
+					<xs:element name="Arkivert_revisjonsinfo" type="revisjonsinfo:Arkivert_revisjonsinfo" minOccurs="0" maxOccurs="unbounded"/>
+				</xs:sequence>
+			</xs:extension>
+		</xs:complexContent>
+	</xs:complexType>
+	<xs:complexType name="Referanse_arkivert_EPJ_dokument">
+		<xs:sequence>
+			<xs:element name="komponent_ID" type="xs:string" minOccurs="1" maxOccurs="1"/>
+			<xs:element name="sortering" type="xs:integer" minOccurs="0" maxOccurs="1"/>
+			<xs:element name="filreferanse" type="xs:anyURI" minOccurs="1" maxOccurs="1"/>
+		</xs:sequence>
+	</xs:complexType>
+</xs:schema>

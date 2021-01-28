@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<xs:schema xmlns="http://eisi.helsedir.no/anno2014/nha-epj-1.80/datatyper/stamme" xmlns:stamme="http://eisi.helsedir.no/anno2014/nha-epj-1.80/datatyper/stamme" xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:revisjonsinfo="http://eisi.helsedir.no/anno2014/nha-epj-1.80/datatyper/revisjonsinfo" xmlns:basis="http://eisi.helsedir.no/anno2014/nha-epj-1.80/datatyper/basis" targetNamespace="http://eisi.helsedir.no/anno2014/nha-epj-1.80/datatyper/stamme" elementFormDefault="qualified">
+	<xs:import namespace="http://eisi.helsedir.no/anno2014/nha-epj-1.80/datatyper/revisjonsinfo" schemaLocation="datatyper.revisjonsinfo.xsd"/>
+	<xs:import namespace="http://eisi.helsedir.no/anno2014/nha-epj-1.80/datatyper/basis" schemaLocation="datatyper.basis.xsd"/>
+	<xs:complexType name="Arkivert_dataelement" abstract="true">
+		<xs:complexContent>
+			<xs:extension base="stamme:Arkivert_komponent">
+				<xs:sequence>
+					<xs:element name="Arkivert_revisjonsinfo" type="revisjonsinfo:Arkivert_revisjonsinfo" minOccurs="0" maxOccurs="unbounded"/>
+				</xs:sequence>
+			</xs:extension>
+		</xs:complexContent>
+	</xs:complexType>
+	<xs:complexType name="Arkivert_komponent" abstract="true">
+		<xs:sequence>
+			<xs:element name="komponent_ID" type="xs:string" minOccurs="1" maxOccurs="1"/>
+			<xs:element name="komponenttype" type="xs:string" minOccurs="1" maxOccurs="1"/>
+			<xs:element name="sortering" type="xs:integer" minOccurs="0" maxOccurs="1"/>
+		</xs:sequence>
+	</xs:complexType>
+	<xs:complexType name="Arkivert_Strukturkomponent" abstract="true">
+		<xs:complexContent>
+			<xs:extension base="stamme:Arkivert_komponent">
+				<xs:sequence>
+					<xs:element name="Arkivert_link" type="stamme:Arkivert_link" minOccurs="0" maxOccurs="unbounded"/>
+				</xs:sequence>
+			</xs:extension>
+		</xs:complexContent>
+	</xs:complexType>
+	<xs:complexType name="Arkivert_link">
+		<xs:sequence>
+			<xs:element name="link_til_komponent" type="xs:string" minOccurs="1" maxOccurs="1"/>
+			<xs:element name="link_fra_komponent" type="xs:string" minOccurs="0" maxOccurs="1"/>
+			<xs:element name="merknad" type="xs:string" minOccurs="0" maxOccurs="1"/>
+			<xs:element ref="basis:linkstyrke" minOccurs="0" maxOccurs="1"/>
+			<xs:element ref="basis:linktype" minOccurs="1" maxOccurs="1"/>
+		</xs:sequence>
+	</xs:complexType>
+</xs:schema>

@@ -1,0 +1,11 @@
+Feilkode;Feltnavn;Datatype;Validator;Kategori;Type;Innholdsbeskrivelse 
+EPJ-00;shell;;[ -f $epj ];;T;Sjekk at inndata fil '$epj' finnes
+EPJ-01;shell;;[ -f $skjema_pasientinfo ];;T;Sjekk at skjema '$skjema_pasientinfo' finnes
+EPJ-02;shell;;[ -f $skjema_dok ];;T;Sjekk at skjema '$skjema_dok' finnes
+EPJ-03;shell;;[ -f $skjema_sak ];;T;Sjekk at skjema '$skjema_sak' finnes
+EPJ-04;shell;;[ '$pasientinfofil' != '' ];;O;Sjekk at pasientinfofil ($pasientinfofil) finnes i $epj
+EPJ-05;shell;;[ '$epjsakfil' != '' ];;O;Sjekk at EPJ sak fil ($epjsakfil) finnes i $epj
+EPJ-06;shell;;[ '${#epjdokfiler[@]}' != '0' ];;O;Sjekk at EPJ dok filer finnes i $epj
+EPJ-07;shell;;tar xOf $epj $pasientinfofil | xmllint --noout --schema $skjema_pasientinfo -;;O;Validering av $pasientinfofil
+EPJ-08;shell;;tar xOf $epj $epjsakfil | xmllint --noout --schema $skjema_sak -;;O;Validering av $epjsakfil
+EPJ-09;utelatt;;tar xOf $epj $epjdokfil | xmllint --noout --schema $skjema_dok -;;O;Validering av $epjdokfil

@@ -1,0 +1,151 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<xs:schema xmlns="http://eisi.helsedir.no/anno2014/nha-epj-1.80/datatyper/grunndata" xmlns:grunndata="http://eisi.helsedir.no/anno2014/nha-epj-1.80/datatyper/grunndata" xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:basis="http://eisi.helsedir.no/anno2014/nha-epj-1.80/datatyper/basis" targetNamespace="http://eisi.helsedir.no/anno2014/nha-epj-1.80/datatyper/grunndata" elementFormDefault="qualified">
+	<xs:import namespace="http://eisi.helsedir.no/anno2014/nha-epj-1.80/datatyper/basis" schemaLocation="datatyper.basis.xsd"/>
+	<xs:complexType name="Arkivert_R_TELE">
+		<xs:sequence>
+			<xs:element name="teleadresse_komponent_ID" type="xs:string" minOccurs="0" maxOccurs="1"/>
+			<xs:element name="telekomadresse" type="xs:anyURI" minOccurs="1" maxOccurs="1"/>
+			<xs:element ref="basis:telekomtype" minOccurs="0" maxOccurs="1"/>
+		</xs:sequence>
+	</xs:complexType>
+	<xs:element name="telekomadresse">
+		<xs:complexType>
+			<xs:complexContent>
+				<xs:extension base="grunndata:Arkivert_R_TELE"/>
+			</xs:complexContent>
+		</xs:complexType>
+	</xs:element>
+	<xs:complexType name="Arkivert_R_A">
+		<xs:sequence>
+			<xs:element name="adresse_komponent_ID" type="xs:string" minOccurs="0" maxOccurs="1"/>
+			<xs:element name="stedsadresse" type="xs:string" minOccurs="1" maxOccurs="1"/>
+			<xs:element ref="grunndata:telekomadresse" minOccurs="0" maxOccurs="unbounded"/>
+		</xs:sequence>
+	</xs:complexType>
+	<xs:element name="adresse">
+		<xs:complexType>
+			<xs:complexContent>
+				<xs:extension base="grunndata:Arkivert_R_A"/>
+			</xs:complexContent>
+		</xs:complexType>
+	</xs:element>
+	<xs:complexType name="Arkivert_R_SYS">
+		<xs:sequence>
+			<xs:element name="betegnelse_eksternt_system" type="xs:string" minOccurs="1" maxOccurs="1"/>
+			<xs:element name="eksternt_system_komponent_ID" type="xs:string" minOccurs="0" maxOccurs="1"/>
+			<xs:element name="tilhører_virksomhet" type="xs:string" minOccurs="0" maxOccurs="1"/>
+			<xs:element ref="basis:type_eksternt_system" minOccurs="0" maxOccurs="1"/>
+			<xs:element ref="basis:ID_eksternt_system" minOccurs="0" maxOccurs="1"/>
+		</xs:sequence>
+	</xs:complexType>
+	<xs:complexType name="arkivert_R_SYS_elementverdi">
+		<xs:complexContent>
+			<xs:extension base="grunndata:Arkivert_R_SYS"/>
+		</xs:complexContent>
+	</xs:complexType>
+	<xs:element name="rolle___organisatorisk_enhet">
+		<xs:complexType>
+			<xs:complexContent>
+				<xs:extension base="grunndata:Arkivert_R_E"/>
+			</xs:complexContent>
+		</xs:complexType>
+	</xs:element>
+	<xs:complexType name="Arkivert_R_E">
+		<xs:sequence>
+			<xs:element name="organisatorisk_enhet_komponent_ID" type="xs:string" minOccurs="0" maxOccurs="1"/>
+			<xs:element name="enhetsbetegnelse" type="xs:string" minOccurs="1" maxOccurs="1"/>
+			<xs:element name="tilhører_virksomhet" type="xs:string" minOccurs="0" maxOccurs="1"/>
+			<xs:element name="HER_ID" type="xs:string" minOccurs="0" maxOccurs="1"/>
+			<xs:element name="RESH_ID" type="xs:string" minOccurs="0" maxOccurs="1"/>
+			<xs:element ref="basis:enhetstype" minOccurs="0" maxOccurs="1"/>
+		</xs:sequence>
+	</xs:complexType>
+	<xs:element name="ansvarlig_enhet">
+		<xs:complexType>
+			<xs:complexContent>
+				<xs:extension base="grunndata:Arkivert_R_E"/>
+			</xs:complexContent>
+		</xs:complexType>
+	</xs:element>
+	<xs:complexType name="arkivert_R_E_elementverdi">
+		<xs:complexContent>
+			<xs:extension base="grunndata:Arkivert_R_E"/>
+		</xs:complexContent>
+	</xs:complexType>
+	<xs:complexType name="Arkivert_R_V">
+		<xs:sequence>
+			<xs:element name="virksomhet_komponent_ID" type="xs:string" minOccurs="0" maxOccurs="1"/>
+			<xs:element name="enhetsbetegnelse" type="xs:string" minOccurs="1" maxOccurs="1"/>
+			<xs:element name="organisasjonsnummer" type="xs:string" minOccurs="0" maxOccurs="1"/>
+			<xs:element name="HER_ID" type="xs:string" minOccurs="0" maxOccurs="1"/>
+			<xs:element name="RESH_ID" type="xs:string" minOccurs="0" maxOccurs="1"/>
+			<xs:element ref="basis:virksomhetstype" minOccurs="0" maxOccurs="1"/>
+		</xs:sequence>
+	</xs:complexType>
+	<xs:element name="arbeidsgiver">
+		<xs:complexType>
+			<xs:complexContent>
+				<xs:extension base="grunndata:Arkivert_R_V"/>
+			</xs:complexContent>
+		</xs:complexType>
+	</xs:element>
+	<xs:complexType name="arkivert_R_V_elementverdi">
+		<xs:complexContent>
+			<xs:extension base="grunndata:Arkivert_R_V"/>
+		</xs:complexContent>
+	</xs:complexType>
+	<xs:complexType name="Arkivert_R_SW">
+		<xs:sequence>
+			<xs:element name="programvare_komponent_ID" type="xs:string" minOccurs="0" maxOccurs="1"/>
+			<xs:element name="betegnelse" type="xs:string" minOccurs="1" maxOccurs="1"/>
+			<xs:element ref="basis:programvare_ID" minOccurs="0" maxOccurs="1"/>
+			<xs:element ref="basis:programvare_type" minOccurs="0" maxOccurs="1"/>
+		</xs:sequence>
+	</xs:complexType>
+	<xs:complexType name="arkivert_R_SW_elementverdi">
+		<xs:complexContent>
+			<xs:extension base="grunndata:Arkivert_R_SW"/>
+		</xs:complexContent>
+	</xs:complexType>
+	<xs:complexType name="Arkivert_R_U">
+		<xs:sequence>
+			<xs:element name="utstyr_komponent_ID" type="xs:string" minOccurs="0" maxOccurs="1"/>
+			<xs:element name="modellbetegnelse" type="xs:string" minOccurs="1" maxOccurs="1"/>
+			<xs:element ref="basis:medisinsk_teknisk_utstyr_ID" minOccurs="0" maxOccurs="1"/>
+			<xs:element ref="basis:utstyr_type" minOccurs="0" maxOccurs="1"/>
+		</xs:sequence>
+	</xs:complexType>
+	<xs:complexType name="arkivert_R_U_elementverdi">
+		<xs:complexContent>
+			<xs:extension base="grunndata:Arkivert_R_U"/>
+		</xs:complexContent>
+	</xs:complexType>
+	<xs:complexType name="arkivert_R_TELE_elementverdi">
+		<xs:complexContent>
+			<xs:extension base="grunndata:Arkivert_R_TELE"/>
+		</xs:complexContent>
+	</xs:complexType>
+	<xs:complexType name="arkivert_R_A_elementverdi">
+		<xs:complexContent>
+			<xs:extension base="grunndata:Arkivert_R_A"/>
+		</xs:complexContent>
+	</xs:complexType>
+	<xs:complexType name="arkivert_R_PADR_elementverdi">
+		<xs:complexContent>
+			<xs:extension base="grunndata:Arkivert_R_PADR"/>
+		</xs:complexContent>
+	</xs:complexType>
+	<xs:complexType name="Arkivert_R_PADR">
+		<xs:sequence>
+			<xs:element name="postadresse_komponent_ID" type="xs:string" minOccurs="0" maxOccurs="1"/>
+			<xs:element name="ustrukturert_adresse" type="xs:string" minOccurs="1" maxOccurs="1"/>
+		</xs:sequence>
+	</xs:complexType>
+	<xs:element name="ansvarlig_virksomhet">
+		<xs:complexType>
+			<xs:complexContent>
+				<xs:extension base="grunndata:Arkivert_R_V"/>
+			</xs:complexContent>
+		</xs:complexType>
+	</xs:element>
+</xs:schema>

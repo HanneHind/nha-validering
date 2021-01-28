@@ -1,0 +1,71 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<xs:schema xmlns="http://eisi.helsedir.no/anno2014/nha-epj-1.80/element/basisbruk" xmlns:basisbruk="http://eisi.helsedir.no/anno2014/nha-epj-1.80/element/basisbruk" xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:basis="http://eisi.helsedir.no/anno2014/nha-epj-1.80/datatyper/basis" xmlns:stamme="http://eisi.helsedir.no/anno2014/nha-epj-1.80/datatyper/stamme" targetNamespace="http://eisi.helsedir.no/anno2014/nha-epj-1.80/element/basisbruk" elementFormDefault="qualified">
+	<xs:import namespace="http://eisi.helsedir.no/anno2014/nha-epj-1.80/datatyper/basis" schemaLocation="datatyper.basis.xsd"/>
+	<xs:import namespace="http://eisi.helsedir.no/anno2014/nha-epj-1.80/datatyper/stamme" schemaLocation="datatyper.stamme.xsd"/>
+	<xs:complexType name="Arkivert_CS_dataelement___coded_simple_value">
+		<xs:complexContent>
+			<xs:extension base="stamme:Arkivert_dataelement">
+				<xs:sequence>
+					<xs:element name="arkivert_CS_elementverdi" type="basis:arkivert_CS_elementverdi" minOccurs="0" maxOccurs="1"/>
+				</xs:sequence>
+			</xs:extension>
+		</xs:complexContent>
+	</xs:complexType>
+	<xs:complexType name="Arkivert_CV_dataelement___coded_value">
+		<xs:complexContent>
+			<xs:extension base="stamme:Arkivert_dataelement">
+				<xs:sequence>
+					<xs:element name="arkivert_CV_elementverdi" type="basis:arkivert_CV_elementverdi" minOccurs="0" maxOccurs="1"/>
+				</xs:sequence>
+			</xs:extension>
+		</xs:complexContent>
+	</xs:complexType>
+	<xs:complexType name="Arkivert_R_IEE_dataelement___ikke_elektronisk_element">
+		<xs:complexContent>
+			<xs:extension base="stamme:Arkivert_dataelement">
+				<xs:sequence>
+					<xs:element name="plassering" type="xs:string" minOccurs="0" maxOccurs="1"/>
+					<xs:element name="beskrivelse" type="xs:string" minOccurs="0" maxOccurs="1"/>
+					<xs:element name="merknad" type="xs:string" minOccurs="0" maxOccurs="1"/>
+				</xs:sequence>
+			</xs:extension>
+		</xs:complexContent>
+	</xs:complexType>
+	<xs:complexType name="Arkivert_PQ_dataelement___physical_quantity">
+		<xs:complexContent>
+			<xs:extension base="stamme:Arkivert_dataelement">
+				<xs:sequence>
+					<xs:element name="arkivert_PQ_elementverdi" type="basis:arkivert_PQ_elementverdi" minOccurs="0" maxOccurs="1"/>
+				</xs:sequence>
+			</xs:extension>
+		</xs:complexContent>
+	</xs:complexType>
+	<xs:complexType name="Arkivert_ELDOK_dataelement___elektronisk_dokument">
+		<xs:complexContent>
+			<xs:extension base="stamme:Arkivert_dataelement">
+				<xs:sequence>
+					<xs:element name="dokumentinnhold" type="xs:anyURI" minOccurs="0" maxOccurs="1"/>
+					<xs:element name="format_dokumentinnhold" type="xs:string" minOccurs="0" maxOccurs="1"/>
+				</xs:sequence>
+			</xs:extension>
+		</xs:complexContent>
+	</xs:complexType>
+	<xs:complexType name="Arkivert_ID_dataelement">
+		<xs:complexContent>
+			<xs:extension base="stamme:Arkivert_dataelement">
+				<xs:sequence>
+					<xs:element name="id" type="xs:string" minOccurs="0" maxOccurs="1"/>
+				</xs:sequence>
+			</xs:extension>
+		</xs:complexContent>
+	</xs:complexType>
+	<xs:complexType name="Arkivert_ident_dataelement">
+		<xs:complexContent>
+			<xs:extension base="stamme:Arkivert_dataelement">
+				<xs:sequence>
+					<xs:element name="arkivert_Ident_elementverdi" type="basis:arkivert_Ident_elementverdi" minOccurs="0" maxOccurs="1"/>
+				</xs:sequence>
+			</xs:extension>
+		</xs:complexContent>
+	</xs:complexType>
+</xs:schema>

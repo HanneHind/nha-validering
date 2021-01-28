@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<xs:schema xmlns="http://eisi.helsedir.no/anno2014/nha-epj-1.80/epj_dokument" xmlns:epj_dokument="http://eisi.helsedir.no/anno2014/nha-epj-1.80/epj_dokument" xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:revisjonsinfo="http://eisi.helsedir.no/anno2014/nha-epj-1.80/datatyper/revisjonsinfo" xmlns:stamme="http://eisi.helsedir.no/anno2014/nha-epj-1.80/datatyper/stamme" targetNamespace="http://eisi.helsedir.no/anno2014/nha-epj-1.80/epj_dokument" elementFormDefault="qualified">
+	<xs:import namespace="http://eisi.helsedir.no/anno2014/nha-epj-1.80/datatyper/revisjonsinfo" schemaLocation="datatyper.revisjonsinfo.xsd"/>
+	<xs:import namespace="http://eisi.helsedir.no/anno2014/nha-epj-1.80/datatyper/stamme" schemaLocation="datatyper.stamme.xsd"/>
+  <xs:import namespace="http://eisi.helsedir.no/anno2014/nha-epj-1.80/element/basisbruk" schemaLocation="element.basisbruk.xsd"/>
+  <xs:complexType name="Arkivert_EPJ_fragment">
+		<xs:complexContent>
+			<xs:extension base="stamme:Arkivert_Strukturkomponent">
+				<xs:sequence>
+					<xs:element name="Arkivert_revisjonsinfo" type="revisjonsinfo:Arkivert_revisjonsinfo" minOccurs="0" maxOccurs="unbounded"/>
+					<xs:element name="Arkivert_dataelement" type="stamme:Arkivert_dataelement" minOccurs="0" maxOccurs="unbounded"/>
+					<xs:element name="Arkivert_EPJ_fragment" type="epj_dokument:Arkivert_EPJ_fragment" minOccurs="0" maxOccurs="unbounded"/>
+				</xs:sequence>
+			</xs:extension>
+		</xs:complexContent>
+	</xs:complexType>
+	<xs:element name="Arkivert_EPJ_dokument">
+		<xs:complexType>
+			<xs:complexContent>
+				<xs:extension base="stamme:Arkivert_Strukturkomponent">
+					<xs:sequence>
+						<xs:element name="Arkivert_revisjonsinfo" type="revisjonsinfo:Arkivert_revisjonsinfo" minOccurs="1" maxOccurs="unbounded"/>
+						<xs:element name="Arkivert_EPJ_fragment" type="epj_dokument:Arkivert_EPJ_fragment" minOccurs="0" maxOccurs="unbounded"/>
+					</xs:sequence>
+				</xs:extension>
+			</xs:complexContent>
+		</xs:complexType>
+	</xs:element>
+</xs:schema>

@@ -1,0 +1,224 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<xs:schema xmlns="http://eisi.helsedir.no/anno2014/nha-epj-1.80/datatyper/basis" xmlns:basis="http://eisi.helsedir.no/anno2014/nha-epj-1.80/datatyper/basis" xmlns:xs="http://www.w3.org/2001/XMLSchema" targetNamespace="http://eisi.helsedir.no/anno2014/nha-epj-1.80/datatyper/basis" elementFormDefault="qualified">
+	<xs:complexType name="CS">
+		<xs:sequence>
+			<xs:element name="code" type="xs:string" minOccurs="1" maxOccurs="1"/>
+			<xs:element name="displayName" type="xs:string" minOccurs="1" maxOccurs="1"/>
+		</xs:sequence>
+	</xs:complexType>
+	<xs:element name="linkstyrke">
+		<xs:complexType>
+			<xs:complexContent>
+				<xs:extension base="basis:CS"/>
+			</xs:complexContent>
+		</xs:complexType>
+	</xs:element>
+	<xs:element name="sekundær_person_ID">
+		<xs:complexType>
+			<xs:complexContent>
+				<xs:extension base="basis:Ident"/>
+			</xs:complexContent>
+		</xs:complexType>
+	</xs:element>
+	<xs:complexType name="Ident">
+		<xs:sequence>
+			<xs:element name="id" type="xs:string" minOccurs="1" maxOccurs="1"/>
+			<xs:element ref="basis:type_identifikator" minOccurs="1" maxOccurs="1"/>
+		</xs:sequence>
+	</xs:complexType>
+	<xs:element name="ID_eksternt_system">
+		<xs:complexType>
+			<xs:complexContent>
+				<xs:extension base="basis:Ident"/>
+			</xs:complexContent>
+		</xs:complexType>
+	</xs:element>
+	<xs:element name="pasientidentifikator">
+		<xs:complexType>
+			<xs:complexContent>
+				<xs:extension base="basis:Ident"/>
+			</xs:complexContent>
+		</xs:complexType>
+	</xs:element>
+	<xs:element name="status_gjennomføring_tiltak">
+		<xs:complexType>
+			<xs:complexContent>
+				<xs:extension base="basis:CS"/>
+			</xs:complexContent>
+		</xs:complexType>
+	</xs:element>
+	<xs:element name="enhetstype">
+		<xs:complexType>
+			<xs:complexContent>
+				<xs:extension base="basis:CV"/>
+			</xs:complexContent>
+		</xs:complexType>
+	</xs:element>
+	<xs:complexType name="CV">
+		<xs:sequence>
+			<xs:element name="code" type="xs:string" minOccurs="0" maxOccurs="1"/>
+			<xs:element name="displayName" type="xs:string" minOccurs="0" maxOccurs="1"/>
+			<xs:element name="codeSystem" type="xs:string" minOccurs="1" maxOccurs="1"/>
+			<xs:element name="codeSystemVersion" type="xs:string" minOccurs="0" maxOccurs="1"/>
+			<xs:element name="originalText" type="xs:string" minOccurs="0" maxOccurs="1"/>
+		</xs:sequence>
+	</xs:complexType>
+	<xs:element name="linktype">
+		<xs:complexType>
+			<xs:complexContent>
+				<xs:extension base="basis:CV"/>
+			</xs:complexContent>
+		</xs:complexType>
+	</xs:element>
+	<xs:element name="virksomhetstype">
+		<xs:complexType>
+			<xs:complexContent>
+				<xs:extension base="basis:CV"/>
+			</xs:complexContent>
+		</xs:complexType>
+	</xs:element>
+	<xs:complexType name="yrkeskode">
+		<xs:complexContent>
+			<xs:extension base="basis:CV"/>
+		</xs:complexContent>
+	</xs:complexType>
+	<xs:element name="revisjonstype">
+		<xs:complexType>
+			<xs:complexContent>
+				<xs:extension base="basis:CV"/>
+			</xs:complexContent>
+		</xs:complexType>
+	</xs:element>
+	<xs:element name="type_eksternt_system">
+		<xs:complexType>
+			<xs:complexContent>
+				<xs:extension base="basis:CV"/>
+			</xs:complexContent>
+		</xs:complexType>
+	</xs:element>
+	<xs:element name="komponent_hendelse">
+		<xs:complexType>
+			<xs:complexContent>
+				<xs:extension base="basis:CV"/>
+			</xs:complexContent>
+		</xs:complexType>
+	</xs:element>
+	<xs:element name="type_identifikator">
+		<xs:complexType>
+			<xs:complexContent>
+				<xs:extension base="basis:CV"/>
+			</xs:complexContent>
+		</xs:complexType>
+	</xs:element>
+	<xs:element name="programvare_type">
+		<xs:complexType>
+			<xs:complexContent>
+				<xs:extension base="basis:CV"/>
+			</xs:complexContent>
+		</xs:complexType>
+	</xs:element>
+	<xs:element name="programvare_ID">
+		<xs:complexType>
+			<xs:complexContent>
+				<xs:extension base="basis:Ident"/>
+			</xs:complexContent>
+		</xs:complexType>
+	</xs:element>
+	<xs:element name="utstyr_type">
+		<xs:complexType>
+			<xs:complexContent>
+				<xs:extension base="basis:CV"/>
+			</xs:complexContent>
+		</xs:complexType>
+	</xs:element>
+	<xs:element name="medisinsk_teknisk_utstyr_ID">
+		<xs:complexType>
+			<xs:complexContent>
+				<xs:extension base="basis:Ident"/>
+			</xs:complexContent>
+		</xs:complexType>
+	</xs:element>
+	<xs:element name="kommune">
+		<xs:complexType>
+			<xs:complexContent>
+				<xs:extension base="basis:CV"/>
+			</xs:complexContent>
+		</xs:complexType>
+	</xs:element>
+	<xs:element name="nasjon">
+		<xs:complexType>
+			<xs:complexContent>
+				<xs:extension base="basis:CS"/>
+			</xs:complexContent>
+		</xs:complexType>
+	</xs:element>
+	<xs:complexType name="arkivert_CV_elementverdi">
+		<xs:complexContent>
+			<xs:extension base="basis:CV"/>
+		</xs:complexContent>
+	</xs:complexType>
+	<xs:complexType name="arkivert_CS_elementverdi">
+		<xs:complexContent>
+			<xs:extension base="basis:CS"/>
+		</xs:complexContent>
+	</xs:complexType>
+	<xs:complexType name="arkivert_PQ_elementverdi">
+		<xs:complexContent>
+			<xs:extension base="basis:PQ"/>
+		</xs:complexContent>
+	</xs:complexType>
+	<xs:complexType name="PQ">
+		<xs:sequence>
+			<xs:element name="value" type="xs:double" minOccurs="1" maxOccurs="1"/>
+			<xs:element name="unit_code" type="xs:string" minOccurs="1" maxOccurs="1"/>
+			<xs:element name="unit_displayName" type="xs:string" minOccurs="0" maxOccurs="1"/>
+		</xs:sequence>
+	</xs:complexType>
+	<xs:complexType name="arkivert_Ident_elementverdi">
+		<xs:complexContent>
+			<xs:extension base="basis:Ident"/>
+		</xs:complexContent>
+	</xs:complexType>
+	<xs:element name="kjønn">
+		<xs:complexType>
+			<xs:complexContent>
+				<xs:extension base="basis:CS"/>
+			</xs:complexContent>
+		</xs:complexType>
+	</xs:element>
+	<xs:element name="H_nummer">
+		<xs:complexType>
+			<xs:complexContent>
+				<xs:extension base="basis:Ident"/>
+			</xs:complexContent>
+		</xs:complexType>
+	</xs:element>
+	<xs:element name="benyttes_i_land">
+		<xs:complexType>
+			<xs:complexContent>
+				<xs:extension base="basis:CS"/>
+			</xs:complexContent>
+		</xs:complexType>
+	</xs:element>
+	<xs:element name="type_navn">
+		<xs:complexType>
+			<xs:complexContent>
+				<xs:extension base="basis:CS"/>
+			</xs:complexContent>
+		</xs:complexType>
+	</xs:element>
+	<xs:element name="adressetype">
+		<xs:complexType>
+			<xs:complexContent>
+				<xs:extension base="basis:CS"/>
+			</xs:complexContent>
+		</xs:complexType>
+	</xs:element>
+	<xs:element name="telekomtype">
+		<xs:complexType>
+			<xs:complexContent>
+				<xs:extension base="basis:CS"/>
+			</xs:complexContent>
+		</xs:complexType>
+	</xs:element>
+</xs:schema>
