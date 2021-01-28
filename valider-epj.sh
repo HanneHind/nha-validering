@@ -1,4 +1,4 @@
-#!/bin/bash
+#!/usr/bin/env bash
 
 PROGRAM_STI="`dirname \"$0\"`"                   # relativ sti
 PROGRAM_STI="`( cd \"$PROGRAM_STI\" && pwd )`"   # absolutt og normalisert sti
@@ -12,9 +12,6 @@ lib=$PROGRAM_STI/lib
 skjemaer=$PROGRAM_STI/skjema
 
 source $lib/valider-felles.sh 2> /dev/null || { echo "FEIL: Finner ikke $lib/valider-felles.sh" ; exit 1; }
-
-# Verktøy som trengs for å kjøre dette scriptet
-#sjekk_verktoy xidel
 
 versjon="0.2.0"
 program="${0##*/}"
