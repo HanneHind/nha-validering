@@ -1,0 +1,7 @@
+Feilkode;Feltnavn;Datatype;Validator;Kategori;Type;Innholdsbeskrivelse 
+EPJ-00;shell;;[ -d $epjark ];;T;Sjekk at epjark-katalogen '$epjark' finnes
+EPJ-01;shell;;[ -f $avlxml ];;T;Sjekk at avlxml '$avlxml' finnes
+EPJ-02;shell;;[ -f $epjpakkeliste ];;T;Sjekk at epj-pakkeliste '$epjpakkeliste' finnes
+EPJ-03;shell;;valider-avlxml.sh --epj $avlxml;;T;Valider avlxml '$avlxml'
+EPJ-04;shell;;valider-epj-pakkeliste.sh $epjpakkeliste;;O;Valider pakkelisten '$epjpakkeliste'
+EPJ-05;shell;;[ "$(valider-epj-pakkeliste.sh -l $epjpakkeliste | wc -l)" == "$(ls $epjark/*tar| wc -l)" ];;O;Kontroller at antall pakker i pakkeliste '$epjpakkeliste' samsvarer med pakker i katalogen '$epjark'
