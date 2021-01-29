@@ -17,9 +17,9 @@ Validering av en avleveringsliste (avlxml-<oid>.xml), både for fysiske og elekt
 ### valider-epjark.sh
 Sjekker om en mappe med et sett elektroniske pasientjournaler er konsistent. Dette verktøyet vil også kjøre *valider-avlxml*, *valider-epj-pakkeliste* og *valider-epj*.
 MERK: I gjeldende versjon sjekkes ikke dokumentpakker.
-###valider-epj-pakkeliste
+### valider-epj-pakkeliste
 Kjøres som en del av *valider-epjark*, men kan også kjøres alene. Verktøyertsjekker at strukturen i pakkelisten er i henhold til definert skjema, og kontrollerer sjekksummer for alle journalene som står i listen.
-###valider-epj
+### valider-epj
 Kjøres som en del av *valider-epjark*, men kan også kjøres alene for å kontrollere en enkelt elektronisk pasientjournal.
 
 ## Avlevering av fysiske pasientjournaler
