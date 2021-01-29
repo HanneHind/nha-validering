@@ -12,6 +12,7 @@ I tillegg forutsettes det at følgende verktøy er installert:
 - sed
 
 ## Verktøy
+For å få en mer detaljert beskrivelse av de enkelte verktøyene, start verktøyet med parameteren "-h". Dette vil vise en hjelpetekst inkludert en liste over tilgjengelige parametre. 
 ### valider-avlxml.sh
 Validering av en avleveringsliste (avlxml-<oid>.xml), både for fysiske og elektroniske avleveringer. Verktøyet sjekker strukturen i filen mot definerte skjemaer og kontrollerer informasjon i enkeltjournaler mot mors-regler for å luke ut potensielle vita-journaler.
 ### valider-epjark.sh
